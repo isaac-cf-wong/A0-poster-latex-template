@@ -1,0 +1,206 @@
+\documentclass[a0paper,portrait]{xebaposter}
+\usepackage{style}
+%\usepackage[vlined]{algorithm2e}
+\usepackage{times}
+\usepackage{calc}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multicol}
+%\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{qrcode}
+\usepackage{lipsum}
+\graphicspath{{figures/}}
+
+\title{Title}
+\author{Author A$^{1}$, Author B$^{2}$}
+\affiliation{$^{1}$Institute X, $^{2}$Institute Y}
+\email{author.a@email.com, author.b@email.com}
+
+%\usepackage{geometry}
+%\geometry{papersize={90cm,170cm},verbose=ture,reset}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%% Some math symbols used in the text
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Format 
+% \newcommand{\RotUP}[1]{\begin{sideways}#1\end{sideways}}
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Multicol Settings
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setlength{\columnsep}{0.7em}
+% \setlength{\columnseprule}{0mm}
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Save space in lists. Use this after the opening of the list
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newcommand{\compresslist}{%
+ \setlength{\itemsep}{1pt}%
+ \setlength{\parskip}{0pt}%
+ \setlength{\parsep}{0pt}%
+ }
+
+%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Here starts the poster
+%%---------------------------------------------------------------------------
+%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{poster}%
+  % Poster Options
+  {
+  grid=false,
+  % Option is left on true though the eyecatcher is not used. The reason is
+  % that we have a bit nicer looking title and author formatting in the headercol
+  % this way
+  eyecatcher=false,
+  bgColorOne=bgcolor1,
+  bgColorTwo=bgcolor2,
+  borderColor=bordercolor,
+  headerColorOne=headercolor1,
+  headerColorTwo=headercolor2,
+  headerFontColor=headerfontcolor,
+  % Only simple background color used, no shading, so boxColorTwo isn't necessary
+  boxColorOne=boxcolor,
+  headershape=roundedright,
+  headerfont=\Large\sf\bf,
+  textborder=rectangle,
+  headerborder=open,
+  boxshade=plain
+  }
+  % Eye Catcher
+  {
+  %
+  }
+  % Title
+  {\Huge \title}
+  % Authors
+  {\LARGE \author \\%[1em]
+  {\large \affiliation} \\
+  {\normalsize\texttt{\email}}}
+  % University logo
+  {
+  \begin{tabular}{r}
+    \includegraphics[height=0.07 \textheight]{example-image} \\
+  \end{tabular}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %  \headerbox{Abstract}{name=abstract,column=0,row=0,span=1}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %This is the abstract.
+  %  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Introduction}{name=introduction,column=0,row=0}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \lipsum[1]
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Methodology}{name=methodology,column=1,span=2}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \lipsum[2]
+
+    % Figure on the right side
+    \begin{minipage}[t]{0.5\textwidth} % Adjust width as needed
+      \raggedleft
+      \includegraphics[scale=.5]{example-image-a}
+      % Uncomment and modify the caption if needed
+      % \caption{\scriptsize Right figure shows the definition of neighborhood for the central point in T1 images while the left figure shows the definition of the neighborhood for T2. As it can be obviously seen in the figure, the neighborhood defined for T1 covers more detail.} 
+    \end{minipage}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Additional information A}{name=additional_info_a,column=0,span=1,below=introduction}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{itemize}
+      \compresslist
+      \item A
+      \item B
+      \item C
+      \item D
+      \item D
+    \end{itemize}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %   \headerbox{Phase III: Feature Analysis}{name=phase3,column=2,span=1,row=0}{
+  \headerbox{Additional information B}{name=additional_info_b,column=0,span=1,below=additional_info_a}{
+    \lipsum[3]
+    % Figure on the right side
+    \begin{minipage}[t]{0.5\textwidth} % Adjust width as needed
+      \raggedleft
+      \includegraphics[scale=.3]{example-image-a}
+    \end{minipage}
+  }
+
+  % Create a new box for the QR code and explanatory text
+  \headerbox{Read the paper}{name=qr_code_box,column=0,span=1,below=additional_info_b}{
+    \begin{minipage}{\textwidth} % Adjust the width as needed
+      \centering
+      \qrcode[height=4cm]{https://your-paper-url.com} \\% Replace with your actual URL
+        [0.5cm] % Adjust space between QR code and text
+      \small \textit{Scan this QR code to access the paper.} % Caption-like text
+    \end{minipage}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Results }{name=results,column=1,span=2,below=methodology}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{multicols}{2}
+      \lipsum[3]
+
+      \centerline{\includegraphics[scale=.7]{example-image-a}}
+      %\caption{}
+      \centerline{\includegraphics[scale=.7]{example-image-b}}
+      %\caption{}
+    \end{multicols}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %   \headerbox{Funding}{name=funding,column=1,span=2,above=bottom}{
+  % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %	This work is entirely done at Sharif University of Technology, Tehran, Iran.
+  %  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{References}{name=references,column=1,span=2,below=results}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \smaller
+
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+    \begin{thebibliography}{1}\itemsep=-0.01em
+      \setlength{\baselineskip}{0.4em}
+
+      %       \bibitem{amberg07:nicp}
+      %       B.~Amberg, A.~Blake, T.~Vetter
+      %       \newblock On Compositional Image Alignment with an Application to Activce Appearance Models
+      %       \newblock In {\em CVPR'09}, 2009.
+      \bibitem{}
+      Reference 1
+      \bibitem{}
+      Reference 2
+    \end{thebibliography}
+  }
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Acknowledgment}{name=ack,column=1,span=2,below=references}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    Acknowledgement statement.
+  }
+\end{poster}%
+%
+\end{document}

@@ -1,0 +1,17 @@
+{
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "files.encoding": "utf8",
+    "editor.trimAutoWhitespace": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "cSpell.enabled": true,
+    "cSpell.language": "en",
+    "cSpell.words": ["TeX", "LaTeX"],
+    "latex-workshop.formatting.latex": "latexindent",
+    "[latex]": {
+      "editor.quickSuggestions": { "other": true, "comments": false },
+      "editor.defaultFormatter": "James-Yu.latex-workshop"
+    }
+  }
+  

@@ -1,0 +1,12 @@
+files:
+  - ".gitignore" # include
+  - ".github"
+  - ".vscode"
+  - ".pre-commit-config.yml"
+  - "LICENSE"
+  - "README.md"
+  - "SUPPORT.md"
+  - "!.github/workflows/template-sync.yml"
+  - "!.github/template-sync.yml"
+  - "main.tex"
+  - "Makefile"
