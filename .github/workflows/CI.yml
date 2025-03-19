@@ -21,6 +21,7 @@ jobs:
           check_filenames: true
           check_hidden: true
           ignore_words_list: "te,nd"
+          ignore_words_file: .ignore_words.txt
           path: "main.tex"
 
       - name: Compile LaTeX document
