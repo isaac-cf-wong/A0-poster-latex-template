@@ -1,4 +1,4 @@
-main.bak*
+*.bak*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
